@@ -4,7 +4,8 @@
   "description": "merntwitter",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+  "server": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,3 +24,4 @@
     "nodemon": "^2.0.6"
   }
 }
+  
