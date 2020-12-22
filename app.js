@@ -5,14 +5,20 @@ const app = express();
 const db = require("./config/keys").mongoURI;
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 const users = require("./routes/api/users");
 const tweets = require("./routes/api/tweets");
+const passport = require("passport");
+require("./config/passport")(passport);
+//const User = require("../../models/User");
 
 
-app.get("/", (req, res) =>
-  res.send("It's a glizzy world baby, we just live here!")
-);
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log("Connected to MongoDB successfully"))
+  .catch(err => console.log(err));
+
+
 
 app.use("/api/users", users);
 app.use("/api/tweets", tweets); 
