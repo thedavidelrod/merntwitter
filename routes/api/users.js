@@ -8,6 +8,10 @@ const passport = require("passport");
 const validateRegisterInput = require("../../validations/register");
 const validateLoginInput = require("../../validations/login");
 
+
+router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
+
+
 router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
